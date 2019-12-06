@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './Edit.css';
 
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *POST* COMPONENT
@@ -20,7 +19,12 @@ export default class Edit extends Component {
   }
 
   updatePost() {
+    const {text} = this.state;
+    const {id, updatePostFn, hideEdit} = this.props;
 
+    //invoke the method updatePostFn passed from App to Post, then from Post to here
+    updatePostFn(id, text);
+    hideEdit();
   }
 
   render() {
